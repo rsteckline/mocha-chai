@@ -34,4 +34,29 @@ describe('App', function () {
             assert.typeOf(addNumbersResult, 'number');
         });
     });
+
+    describe('countSameInitials()', function () {
+        it('should return the correct count of names with the same initials', function () {
+            const names = [
+                "Amelia Anderson", "Zoe Campbell", "Benjamin Lee", "Grace Wilson",
+                "Samuel Wright", "Lily Hernandez", "Thomas Turner", "Harper Collins",
+                "Daniel Garcia", "Abigail Adams", "Noah Robinson", "Ella Murphy",
+                "Rory Ramos", "Jacob Foster", "Scarlett Brown", "Tessa Thorne"
+            ];
+
+            const result = app.countSameInitials(names);
+            assert.equal(result, 5);
+        });
+
+        it('should return 0 if no names have matching initials', function () {
+            const names = ["Jane Doe", "John Smith", "Alice Brown"];
+            const result = app.countSameInitials(names);
+            assert.equal(result, 0);
+        });
+
+        it('should handle an empty array', function () {
+            const result = app.countSameInitials([]);
+            assert.equal(result, 0);
+        });
+    });
 });
